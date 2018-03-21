@@ -23,14 +23,5 @@
     <style name="Buton.Borderless.Colored" parent="Widget.AppCompat.Button.Borderless.Colored">
         <item name="android:textColor">@color/colorWhite</item>
     </style>
-    
-    <style name="AppTheme.Orange" parent="PayumoneyAppTheme">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorButtonNormal">@color/colorPrimary</item>
-        <!--<item name="alertDialogTheme">@style/AlertDialogStyle_green</item>-->
-        <item name="actionMenuTextColor">@color/white</item>
-    </style>
 
 </resources>
