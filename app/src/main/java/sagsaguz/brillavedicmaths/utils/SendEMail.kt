@@ -43,14 +43,14 @@ class SendEMail
                 object : javax.mail.Authenticator() {
                     //Authenticating the password
                     override fun getPasswordAuthentication(): PasswordAuthentication? {
-                        return PasswordAuthentication("shilpa@brightkidmont.com", "daffodil12345")
+                        return PasswordAuthentication("you email", "your password")
                     }
                 })
         try {
             //Creating MimeMessage object
             val mm = MimeMessage(session)
             //Setting sender address
-            mm.setFrom(InternetAddress("shilpa@brightkidmont.com"))
+            mm.setFrom(InternetAddress("your email"))
             //Adding receiver
             mm.addRecipient(Message.RecipientType.TO, InternetAddress(email))
             //Adding subject
