@@ -7,7 +7,7 @@ import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBIndexRan
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBRangeKey
 import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBTable
 
-@DynamoDBTable(tableName = "brillavm-mobilehub-86056955-BrillaVMUsers")
+@DynamoDBTable(tableName = "your table name as in dynamo db")
 class BrillaVMUsersDO {
     @get:DynamoDBHashKey(attributeName = "phone")
     @get:DynamoDBAttribute(attributeName = "phone")
