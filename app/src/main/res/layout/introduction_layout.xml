@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="sagsaguz.brillavedicmaths.IntroductionActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnNext"
+        android:id="@+id/scrollView">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Program Overview"
+            android:textSize="22sp"
+            android:textColor="@color/colorDeepBlue"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/text"/>
+
+        <VideoView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/text"
+            android:id="@+id/vvIntro"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/text">
+
+            <ProgressBar
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:elevation="5dp"
+                android:id="@+id/pbIntro"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/desc_header"
+            android:textSize="22sp"
+            android:textColor="@color/colorDeepBlue"
+            android:textStyle="bold"
+            android:layout_below="@id/vvIntro"
+            android:gravity="center"
+            android:id="@+id/desc_header"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/desc"
+            android:textSize="18sp"
+            android:textColor="@color/colorDeepRose"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:paddingStart="10dp"
+            android:paddingEnd="5dp"
+            android:layout_below="@+id/desc_header"
+            android:id="@+id/desc"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:layout_below="@id/desc"
+            android:background="@drawable/login_border">
+
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/instructor"
+                android:id="@+id/profile"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toEndOf="@id/profile"
+                android:id="@+id/Name">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Instructor Profile"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorNavy"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorNavy"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prasanta Sanyal"
+                    android:textColor="@color/deep_blue"
+                    android:textSize="20sp"
+                    android:layout_marginTop="3dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Educator. IIT Alumnus &amp; Math Enthusiast !"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile"
+                android:text="@string/instructor"
+                android:textSize="16sp"
+                android:layout_marginTop="@dimen/dimen_5dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Next"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:layout_margin="5dp"
+        android:background="@color/colorDarkBlue"
+        android:id="@+id/btnNext"/>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -7,254 +7,374 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="5dp">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:scrollbars="none">
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/ll1">
+            android:orientation="vertical"
+            android:layout_margin="5dp">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:src="@drawable/sprouts"
-                    android:elevation="5dp"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Free Trail"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="No of skills : 4"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Everyone"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:src="@drawable/blossoms"
-                    android:elevation="5dp"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Age : 8 - 10 yrs"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="No of skills : 29"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Rs : 599"
-                    android:textColor="@color/colorRed"
-                    android:gravity="center"/>
+                android:orientation="horizontal"
+                android:id="@+id/ll1">
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Now at  "
-                        android:layout_centerVertical="true"
-                        android:id="@+id/text1"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Rs : 299"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
+                        android:text="Free"
+                        android:textSize="28dp"
                         android:textColor="@color/colorGreen"
-                        android:layout_toEndOf="@id/text1"
-                        android:id="@+id/text2"/>
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_below="@id/ll1"
-            android:layout_marginBottom="10dp"
-            android:id="@+id/ll2">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:src="@drawable/garden"
-                    android:elevation="5dp"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Age : 11 - 13 yrs"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="No of skills : 38"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Rs : 999"
-                    android:textColor="@color/colorRed"
-                    android:gravity="center"/>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Now at  "
+                        android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
-                        android:id="@+id/text3"/>
+                        android:layout_toStartOf="@id/llSprouts"
+                        android:layout_marginEnd="20dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rs : 499"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
+                        android:text="Trial"
+                        android:textSize="28dp"
                         android:textColor="@color/colorGreen"
-                        android:layout_toEndOf="@id/text3"
-                        android:id="@+id/text4"/>
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@id/llSprouts"
+                        android:layout_marginStart="20dp"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/llSprouts">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/sprouts"
+                            android:elevation="5dp"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Free Trial"
+                                android:gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No of skills : 5"
+                                android:gravity="center"/>
+
+                            <!--<TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Everyone"
+                                android:gravity="center"/>-->
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </RelativeLayout>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/ll1"
+                android:id="@+id/ll2">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:src="@drawable/estate"
-                    android:elevation="5dp"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:id="@+id/llBlossoms">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Age : 14 - 18 yrs"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="No of skills : 50"
-                    android:gravity="center"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Rs : 1599"
-                    android:textColor="@color/colorRed"
-                    android:gravity="center"/>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/blossoms"
+                        android:elevation="5dp"/>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Now at  "
-                        android:layout_centerVertical="true"
-                        android:id="@+id/text5"/>
+                        android:text="30 easy to learn skills"
+                        android:gravity="center"/>
+
+                    <!--<TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No. of skills : 30"
+                        android:gravity="center"/>-->
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Rs : 599"
+                        android:textColor="@color/colorRed"
+                        android:gravity="center"/>
+
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rs : 799"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:textColor="@color/colorGreen"
-                        android:layout_toEndOf="@id/text5"
-                        android:id="@+id/text6"/>
+                        android:layout_gravity="center">
 
-                </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Summer offer  "
+                            android:textSize="16sp"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/text1"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rs : 299"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorGreen"
+                            android:layout_toEndOf="@id/text1"
+                            android:id="@+id/text2"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:id="@+id/llGarden">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/garden"
+                        android:elevation="5dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="40 important skills"
+                        android:gravity="center"/>
+
+                    <!--<TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No. of skills : 40"
+                        android:gravity="center"/>-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Rs : 999"
+                        android:textColor="@color/colorRed"
+                        android:gravity="center"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Summer offer  "
+                            android:textSize="16sp"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/text3"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rs : 499"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorGreen"
+                            android:layout_toEndOf="@id/text3"
+                            android:id="@+id/text4"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/ll2"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/ll3">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:layout_below="@id/ll2"
-            android:id="@+id/ll3">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:id="@+id/llEstate">
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                android:src="@color/colorNavy"
-                android:layout_margin="5dp"
-                android:elevation="5dp"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/estate"
+                        android:elevation="5dp"/>
 
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="50 valuable skills"
+                        android:gravity="center"/>
+
+                    <!--<TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No. of skills : 50"
+                        android:gravity="center"/>-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Rs : 1599"
+                        android:textColor="@color/colorRed"
+                        android:gravity="center"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Summer offer  "
+                            android:textSize="16sp"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/text5"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rs : 799"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorGreen"
+                            android:layout_toEndOf="@id/text5"
+                            android:id="@+id/text6"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:id="@+id/llOrchards">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:src="@drawable/orchards"
+                        android:elevation="5dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="60 essential skills"
+                        android:gravity="center"/>
+
+                    <!--<TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No. of skills : 60"
+                        android:gravity="center"/>-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Rs : 1999"
+                        android:textColor="@color/colorRed"
+                        android:gravity="center"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Summer offer  "
+                            android:textSize="16sp"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/text7"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rs : 999"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorGreen"
+                            android:layout_toEndOf="@id/text7"
+                            android:id="@+id/text8"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/homepage_intro"
+                android:textSize="18dp"
+                android:textColor="@color/colorWhite"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/ll3"
+                android:layout_marginBottom="10dp"
+                android:padding="5dp"
+                android:background="@color/colorDeepRose"
+                android:id="@+id/askQuestion"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
     </RelativeLayout>
 

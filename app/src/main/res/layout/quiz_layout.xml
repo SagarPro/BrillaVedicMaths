@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:padding="10dp"
+    android:id="@+id/rlQuiz"
+    tools:context="sagsaguz.brillavedicmaths.QuizActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/rlTimer">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="00"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorNavy"
+            android:id="@+id/hour"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint=" : "
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorNavy"
+            android:layout_toEndOf="@id/hour"
+            android:id="@+id/cHour"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="00"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorNavy"
+            android:layout_toEndOf="@id/cHour"
+            android:id="@+id/minute"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint=" : "
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorNavy"
+            android:layout_toEndOf="@id/minute"
+            android:id="@+id/cMinute"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="00"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorNavy"
+            android:layout_toEndOf="@id/cMinute"
+            android:id="@+id/seconds"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="000"
+            android:textSize="20sp"
+            android:textColor="@color/colorNavy"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/seconds"
+            android:id="@+id/milli_seconds"/>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:elevation="6dp"
+        android:id="@+id/pbQuiz"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Question ?"
+        android:textSize="20sp"
+        android:textColor="@color/colorNavy"
+        android:padding="10dp"
+        android:elevation="5dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/rlTimer"
+        android:id="@+id/tvQuestion"/>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tvQuestion"
+        android:layout_above="@+id/btnCheck">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rgOpt">
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Option 1"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:elevation="5dp"
+                android:layout_marginTop="10dp"
+                android:buttonTint="@color/colorPrimary"
+                android:background="@color/colorAccent"
+                android:id="@+id/rbOpt1"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Option 2"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:elevation="5dp"
+                android:layout_marginTop="10dp"
+                android:buttonTint="@color/colorPrimary"
+                android:background="@color/colorAccent"
+                android:id="@+id/rbOpt2"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Option 3"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:elevation="5dp"
+                android:layout_marginTop="10dp"
+                android:buttonTint="@color/colorPrimary"
+                android:background="@color/colorAccent"
+                android:id="@+id/rbOpt3"/>
+
+            <RadioButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Option 4"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:elevation="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:buttonTint="@color/colorPrimary"
+                android:background="@color/colorAccent"
+                android:id="@+id/rbOpt4"/>
+
+        </RadioGroup>
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Check"
+        android:textSize="18sp"
+        android:textColor="@color/colorWhite"
+        android:textAllCaps="false"
+        android:elevation="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:id="@+id/btnCheck"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Next"
+        android:textSize="18sp"
+        android:textColor="@color/colorWhite"
+        android:textAllCaps="false"
+        android:elevation="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:visibility="gone"
+        android:id="@+id/btnNext"/>
+
+</RelativeLayout>

@@ -1,141 +1,396 @@
 package sagsaguz.brillavedicmaths
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
+import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.BaseTransientBottomBar
+import android.support.design.widget.Snackbar
+import android.support.v4.content.ContextCompat
+import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewAnimationUtils
 import android.view.ViewGroup
 import android.widget.*
-import sagsaguz.brillavedicmaths.adapter.VideosListAdapter
-import java.util.ArrayList
+import com.amazonaws.AmazonClientException
+import com.amazonaws.mobile.client.AWSMobileClient
+import com.amazonaws.mobileconnectors.dynamodbv2.dynamodbmapper.DynamoDBMapper
+import com.amazonaws.regions.Region
+import com.amazonaws.regions.Regions
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient
+import com.amazonaws.services.dynamodbv2.model.ScanRequest
+import com.amazonaws.services.dynamodbv2.model.ScanResult
+import com.payumoney.core.PayUmoneyConfig
+import com.payumoney.core.PayUmoneyConstants
+import com.payumoney.core.PayUmoneySdkInitializer
+import com.payumoney.core.entity.TransactionResponse
+import com.payumoney.sdkui.ui.utils.PayUmoneyFlowManager
+import com.payumoney.sdkui.ui.utils.ResultModel
+import sagsaguz.brillavedicmaths.utils.AWSProvider
+import sagsaguz.brillavedicmaths.utils.BrillaVMUsersDO
+import sagsaguz.brillavedicmaths.utils.Config
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
+import java.util.*
+import java.util.Arrays.asList
+import kotlin.collections.ArrayList
 
 class DetailsActivity : AppCompatActivity() {
 
+    lateinit var rlDetails : RelativeLayout
+
+    lateinit var category : ImageView
     lateinit var lvDetails : ListView
-
     lateinit var btnPayNow : Button
+    lateinit var btnRegister : Button
+    lateinit var btnFree : Button
+    lateinit var btnViewCourse : Button
+    lateinit var tvText : TextView
+    lateinit var btnNumber : Button
 
-    var list1 = ArrayList<String>()
-    var list2 = ArrayList<String>()
-    var list3 = ArrayList<String>()
-    var list4 = ArrayList<String>()
-    var list5 = ArrayList<String>()
+    var videoNameList = ArrayList<Int>()
+    var imageList = ArrayList<Int>()
+    var priceList = ArrayList<Int>()
+    var nameList = ArrayList<String>()
 
+    var skillList = ArrayList<String>()
+
+    var pos = 0
+
+    var email : String? = null
+    var phone : String? = null
+    var name : String? = null
+    var age : String? = null
+    var city : String? = null
+    var password : String? = null
+
+    lateinit var userPreferences: SharedPreferences
+
+    private lateinit var mPaymentParams: PayUmoneySdkInitializer.PaymentParam
+
+    @SuppressLint("Recycle")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.details_layout)
 
+        pos = intent.getIntExtra("category", 0)
+
+        rlDetails = findViewById(R.id.rlDetails)
+
+        category = findViewById(R.id.category)
         lvDetails = findViewById(R.id.lvDetails)
-
         btnPayNow = findViewById(R.id.btnPayNow)
+        btnRegister = findViewById(R.id.btnRegister)
+        btnRegister.visibility = View.GONE
+        btnFree = findViewById(R.id.btnFree)
+        btnViewCourse = findViewById(R.id.btnViewCourse)
+        btnViewCourse.visibility = View.GONE
 
-        list1.add("Square of 2 & 3 digit numbers ending with 5")
-        list1.add("Square of 2 digit numbers starting with 5")
-        list1.add("Multiplying numbers with 11")
-        list1.add("Cube root of a Perfect Cube")
+        skillList.add("5 Skills")
+        skillList.add("30 easy to learn skills")
+        skillList.add("40 important skills")
+        skillList.add("50 valuable skills")
+        skillList.add("60 essential skills")
 
-        list2.addAll(list1)
-        list2.add("Square of any 2 & 3 digit number")
-        list2.add("Multiplications: Digits in unit places are adding to 10 and other digits are same")
-        list2.add("Multiplying numbers with 111,1111 (series of 1)")
-        list2.add("Multiplying 9 to any number having consequitive digits")
-        list2.add("Multiplying any number with series of 9 where equal or less digits are there in on the other side")
-        list2.add("Criss-Cross Technique - Multiplying any 2 digit numbers")
-        list2.add("Doubling")
-        list2.add("Doubling 3digit")
-        list2.add("Multiplying with 5,25,50")
-        list2.add("Halving")
-        list2.add("Doubling and Halving together")
-        list2.add("Digit Sum")
-        list2.add("Circle of 9")
-        list2.add("Digit sum group adding to 9")
-        list2.add("Fun with 9 point circle")
-        list2.add("Digit Sum addition Check")
-        list2.add("Digit sum subtraction check")
-        list2.add("Digit Sum Checking")
-        list2.add("Divisibility Checking")
-        list2.add("Deficiency from 10. Deficiency & Completion together")
-        list2.add("Mental additions")
-        list2.add("Metal addition by Column")
-        list2.add("Addition, Subtraction both together (only Voice to be added)")
-        list2.add("Quick addition of series of single digit numbers")
-        list2.add("Fast Additions/subtraction in a line")
+        btnNumber = findViewById(R.id.btnNumber)
+        btnNumber.text = skillList[pos]
 
-        list3.addAll(list2)
-        list3.add("Algebric Proof of Technique 1")
-        list3.add("Algebric Proof of Technique 4")
-        list3.add("Multiplications: Digits in unit places are same and 10th place digits  adding to 10")
-        list3.add("Mutiplying any two numbers between 11-19")
-        list3.add("Algebric Proof of Technique 7")
-        list3.add("Multiplying any number with series of 9 where more digits are on the otherside")
-        list3.add("Square root of a perfect square")
-        list3.add("Square roots of  imperfect squares")
-        list3.add("Square roots of  imperfect squares")
-        list3.add("Quick Division by 9")
-        list3.add("Base Method of Division")
-        list3.add("One line division - Upto 2 digit divisor")
-        list3.add("One line division - 3 or more digits")
+        userPreferences = getSharedPreferences("USERDETAILS", Context.MODE_PRIVATE)
+        /*if (userPreferences.getString("LOGIN", "logout") == "login"){
+            btnRegister.visibility = View.GONE
+        } else{
+            btnPayNow.visibility = View.GONE
+        }*/
 
-        list4.addAll(list3)
-        list4.add("Criss-Cross Technique - Multiplying any two 3-digit numbers")
-        list4.add("Square of 3-digit numbers")
-        list4.add("Square of 4 digit numbers")
-        list4.add("Cube of any 2-digit number")
-        list4.add("Base multiplication of numbers near the base 100, 200 etc.( 2 digit base multiplication)")
-        list4.add("Base Method Division with 2, 3 or more digits in Divisor (but lesser than base)")
-        list4.add("Base Method Division with 2, 3 or more digits in Divisor (but greater than base)")
-        list4.add("Percentage Reciprocal")
-        list4.add("Percentage Compounding")
-        list4.add("General Equations")
-        list4.add("Factorisation - Vedic Math Technique")
-        list4.add("Simultaneous Equations")
+        email = userPreferences.getString("EMAIL", "null")
+        phone = userPreferences.getString("PHONE", "null")
+        name = userPreferences.getString("NAME", "null")
+        age = userPreferences.getString("AGE", "null")
+        city = userPreferences.getString("CITY", "null")
+        password = userPreferences.getString("PASSWORD", "null")
 
-        list5.addAll(list4)
-        list5.add("Extending Table")
-        list5.add("Algebraic Proof of Base method of Multiplication")
-        list5.add("Multiplying Numbers near different bases")
-        list5.add("Base Multiplication of 3 numbers near the base")
-        list5.add("Base multiplication of numbers near 10 base (70 base multiplication)")
-        list5.add("Base multiplication of numbers near the base 100, 200 etc.( 2 digit base multiplication)")
+        tvText = findViewById(R.id.tvText)
+        if (pos == 0) {
+            tvText.visibility = View.GONE
+            btnPayNow.visibility = View.GONE
+            //btnRegister.visibility = View.GONE
+            btnFree.visibility = View.VISIBLE
+            btnViewCourse.visibility = View.GONE
+        } else{
+            btnFree.visibility = View.GONE
+        }
 
-        //val listAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list5)
-        val listAdapter = VideosListAdapter(this, list1)
+        btnFree.setOnClickListener {
+            if (userPreferences.getString("LOGIN", "logout") == "login"){
+                val intent = Intent(baseContext, VideoListActivity::class.java)
+                intent.putExtra("category", pos)
+                startActivity(intent)
+                finish()
+            } else{
+                startActivity(Intent(applicationContext, LoginActivity::class.java))
+            }
+        }
+
+        btnPayNow.setOnClickListener {
+            if (userPreferences.getString("LOGIN", "logout") == "login"){
+                launchPayUMoneyFlow()
+            } else{
+                startActivity(Intent(applicationContext, LoginActivity::class.java))
+            }
+        }
+
+        /*btnRegister.setOnClickListener {
+            startActivity(Intent(applicationContext, LoginActivity::class.java))
+        }*/
+
+        btnViewCourse.setOnClickListener {
+            if (userPreferences.getString("LOGIN", "logout") == "login"){
+                val intent = Intent(baseContext, VideoListActivity::class.java)
+                intent.putExtra("category", pos)
+                startActivity(intent)
+                finish()
+            } else{
+                startActivity(Intent(applicationContext, LoginActivity::class.java))
+            }
+        }
+
+        nameList.add("sprouts")
+        nameList.add("blossom")
+        nameList.add("garden")
+        nameList.add("estate")
+        nameList.add("orchards")
+
+        val categoryName = userPreferences.getString("CATEGORY", "sprouts")
+
+        val n = nameList.indexOf(categoryName)
+        if (pos<=n)
+            btnPayNow.visibility = View.GONE
+
+        if (categoryName == nameList[pos]) {
+            if (categoryName == "sprouts") {
+                btnViewCourse.visibility = View.GONE
+            } else {
+                btnViewCourse.visibility = View.VISIBLE
+            }
+        }
+
+        videoNameList.add(R.array.sprouts)
+        videoNameList.add(R.array.blossoms)
+        videoNameList.add(R.array.garden)
+        videoNameList.add(R.array.estate)
+        videoNameList.add(R.array.orchard)
+
+        imageList.add(R.drawable.sprouts_d)
+        imageList.add(R.drawable.blossoms_d)
+        imageList.add(R.drawable.garden_d)
+        imageList.add(R.drawable.estate_d)
+        imageList.add(R.drawable.orchards_d)
+
+        priceList.add(0)
+        priceList.add(299)
+        priceList.add(499)
+        priceList.add(799)
+        priceList.add(999)
+
+        category.setImageResource(imageList[pos])
+
+        val mFacts = resources.getStringArray(videoNameList[pos])
+        val list = ArrayList(Arrays.asList(*mFacts))
+
+        val listAdapter = ListAdapter(this, list)
         lvDetails.adapter = listAdapter
 
     }
 
-    inner class NotesAdapter : BaseAdapter {
+    private fun basicSnackBar(message: String) {
+        val snackbar = Snackbar.make(rlDetails, message, Snackbar.LENGTH_SHORT)
+        val sbView = snackbar.view
+        sbView.setBackgroundColor(ContextCompat.getColor(this, R.color.colorNavy))
+        val textView = sbView.findViewById<TextView>(android.support.design.R.id.snackbar_text)
+        textView.setTextColor(ContextCompat.getColor(this, R.color.white))
+        snackbar.show()
+    }
 
-        private var notesList = ArrayList<String>()
-        private var context: Context? = null
+    private fun launchPayUMoneyFlow() {
+        val payUmoneyConfig = PayUmoneyConfig.getInstance()
 
-        constructor(context: Context, notesList: ArrayList<String>) : super() {
-            this.notesList = notesList
-            this.context = context
+        payUmoneyConfig.doneButtonText = "Done Button"
+
+        payUmoneyConfig.payUmoneyActivityTitle = "Payment"
+
+        val builder = PayUmoneySdkInitializer.PaymentParam.Builder()
+        val txnId = System.currentTimeMillis().toString() + ""
+        //val amount = java.lang.Double.parseDouble(priceList[pos].toString())
+        val amount = java.lang.Double.parseDouble("1")
+        val phone = phone
+        val productName = "Brilla Vedic Maths - "+ nameList[pos]
+        val firstName = name
+        val email = email
+        val udf1 = ""
+        val udf2 = ""
+        val udf3 = ""
+        val udf4 = ""
+        val udf5 = ""
+        val udf6 = ""
+        val udf7 = ""
+        val udf8 = ""
+        val udf9 = ""
+        val udf10 = ""
+
+        builder.setAmount(amount)
+                .setTxnId(txnId)
+                .setPhone(phone)
+                .setProductName(productName)
+                .setFirstName(firstName)
+                .setEmail(email)
+                .setsUrl("https://www.payumoney.com/mobileapp/payumoney/success.php")
+                .setfUrl("https://www.payumoney.com/mobileapp/payumoney/failure.php")
+                .setUdf1(udf1)
+                .setUdf2(udf2)
+                .setUdf3(udf3)
+                .setUdf4(udf4)
+                .setUdf5(udf5)
+                .setUdf6(udf6)
+                .setUdf7(udf7)
+                .setUdf8(udf8)
+                .setUdf9(udf9)
+                .setUdf10(udf10)
+                .setIsDebug(true)
+                .setKey("7oYrm7US")
+                .setMerchantId("5761531")
+
+        try {
+            mPaymentParams = builder.build()
+            mPaymentParams = calculateServerSideHashAndInitiatePayment1(mPaymentParams)
+
+            PayUmoneyFlowManager.startPayUMoneyFlow(mPaymentParams, this, R.style.AppTheme_default, false)
+
+        } catch (e: Exception) {
+            Toast.makeText(this, "Exception : " + e.message, Toast.LENGTH_SHORT).show()
         }
 
+    }
+
+    private fun calculateServerSideHashAndInitiatePayment1(paymentParam: PayUmoneySdkInitializer.PaymentParam): PayUmoneySdkInitializer.PaymentParam {
+
+        val stringBuilder = StringBuilder()
+        val params = paymentParam.params
+        stringBuilder.append(params[PayUmoneyConstants.KEY]).append("|")
+        stringBuilder.append(params[PayUmoneyConstants.TXNID]).append("|")
+        stringBuilder.append(params[PayUmoneyConstants.AMOUNT]).append("|")
+        stringBuilder.append(params[PayUmoneyConstants.PRODUCT_INFO]).append("|")
+        stringBuilder.append(params[PayUmoneyConstants.FIRSTNAME]).append("|")
+        stringBuilder.append(params[PayUmoneyConstants.EMAIL]).append("|")
+        stringBuilder.append(params[PayUmoneyConstants.UDF1]).append("|")
+        stringBuilder.append(params[PayUmoneyConstants.UDF2]).append("|")
+        stringBuilder.append(params[PayUmoneyConstants.UDF3]).append("|")
+        stringBuilder.append(params[PayUmoneyConstants.UDF4]).append("|")
+        stringBuilder.append(params[PayUmoneyConstants.UDF5]).append("||||||")
+        stringBuilder.append("zbk4YZzVY9")
+
+        val hash = hashCal(stringBuilder.toString())
+        paymentParam.setMerchantHash(hash)
+
+        return paymentParam
+    }
+
+    fun hashCal(str: String): String {
+        val hashseq = str.toByteArray()
+        val hexString = StringBuilder()
+        try {
+            val algorithm = MessageDigest.getInstance("SHA-512")
+            algorithm.reset()
+            algorithm.update(hashseq)
+            val messageDigest = algorithm.digest()
+            for (aMessageDigest in messageDigest) {
+                val hex = Integer.toHexString(0xFF and aMessageDigest.toInt())
+                if (hex.length == 1) {
+                    hexString.append("0")
+                }
+                hexString.append(hex)
+            }
+        } catch (ignored: NoSuchAlgorithmException) {
+            Toast.makeText(this, "Exception : " + ignored.message, Toast.LENGTH_SHORT).show()
+        }
+
+        return hexString.toString()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        // Result Code is -1 send from Payumoney activity
+        Log.d("MainActivity", "request code $requestCode resultcode $resultCode")
+        if (requestCode == PayUmoneyFlowManager.REQUEST_CODE_PAYMENT && resultCode == Activity.RESULT_OK && data != null) {
+            val transactionResponse = data.getParcelableExtra<TransactionResponse>(PayUmoneyFlowManager
+                    .INTENT_EXTRA_TRANSACTION_RESPONSE)
+
+            val resultModel = data.getParcelableExtra<ResultModel>(PayUmoneyFlowManager.ARG_RESULT)
+
+
+            if (transactionResponse?.getPayuResponse() != null) {
+                if (transactionResponse.transactionStatus == TransactionResponse.TransactionStatus.SUCCESSFUL) {
+                    basicSnackBar("Successful Transaction")
+                    UpdateCategory().execute()
+                } else {
+                    basicSnackBar("Failure Transaction")
+                }
+
+                // Response from Payumoney
+                val payuResponse = transactionResponse.getPayuResponse()
+
+                // Response from SURl and FURL
+                val merchantResponse = transactionResponse.transactionDetails
+
+                /*new AlertDialog.Builder(this)
+                        .setCancelable(false)
+                        .setMessage("Payu's Data : " + payuResponse + "\n\n\n Merchant's Data: " + merchantResponse)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                dialog.dismiss();
+                            }
+                        }).show();*/
+
+            } else if (resultModel != null && resultModel.error != null) {
+                Toast.makeText(this, "Error : " + resultModel.error.transactionResponse, Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Both Objects are Null", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    inner class ListAdapter : BaseAdapter {
+
+        private var list = ArrayList<String>()
+        private var context: Context? = null
+        private var inflater: LayoutInflater? = null
+
+        constructor(context: Context, notesList: ArrayList<String>) : super() {
+            this.list = notesList
+            this.context = context
+            inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        }
+
+        @SuppressLint("ViewHolder", "InflateParams")
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
 
-            val view: View?
-            val vh: ViewHolder
+            val holder = Holder()
+            val rowView = inflater!!.inflate(R.layout.list_items, null)
+            holder.tvSLno = rowView.findViewById(R.id.tvSLno)
+            holder.tvSLno!!.text = (position+1).toString()
+            holder.tvVideoName = rowView.findViewById(R.id.tvVideoName)
+            holder.tvVideoName!!.text = list[position]
 
-            if (convertView == null) {
-                view = layoutInflater.inflate(R.layout.list_items, parent, false)
-                vh = ViewHolder(view)
-                view.tag = vh
-            } else {
-                view = convertView
-                vh = view.tag as ViewHolder
-            }
-
-            vh.tvTitle.text = notesList[position].title
-            vh.tvContent.text = notesList[position].content
-
-            return view
+            return rowView
         }
 
         override fun getItem(position: Int): Any {
-            return notesList[position]
+            return list[position]
         }
 
         override fun getItemId(position: Int): Long {
@@ -143,18 +398,67 @@ class DetailsActivity : AppCompatActivity() {
         }
 
         override fun getCount(): Int {
-            return notesList.size
+            return list.size
         }
+
+        private inner class Holder {
+            internal var tvSLno: TextView? = null
+            internal var tvVideoName: TextView? = null
+        }
+
     }
 
-    private class ViewHolder(view: View?) {
-        lateinit var tvSLno: TextView
-        lateinit var tvVideoName: TextView
+    @SuppressLint("StaticFieldLeak")
+    inner class UpdateCategory : AsyncTask<Void, Void, String>() {
 
-        init {
-            this.tvSLno = view?.findViewById(R.id.tvSLno) as TextView
-            this.tvVideoName = view?.findViewById(R.id.tvVideoName) as TextView
+        private var brillaVMUsersDo = BrillaVMUsersDO()
+
+        override fun onPreExecute() {
+            //pbForm.visibility = View.VISIBLE
+            brillaVMUsersDo.phone(phone.toString())
+            brillaVMUsersDo.email(email.toString())
+            brillaVMUsersDo.name(name.toString())
+            brillaVMUsersDo.age(age.toString())
+            brillaVMUsersDo.city(city.toString())
+            brillaVMUsersDo.password(password.toString())
         }
+
+        override fun doInBackground(vararg p0: Void?): String {
+
+            val awsProvider = AWSProvider()
+            val dynamoDBClient = AmazonDynamoDBClient(awsProvider.getCredentialsProvider(baseContext))
+            dynamoDBClient.setRegion(Region.getRegion(Regions.AP_SOUTH_1))
+            val dynamoDBMapper = DynamoDBMapper.builder()
+                    .dynamoDBClient(dynamoDBClient)
+                    .awsConfiguration(AWSMobileClient.getInstance().configuration)
+                    .build()
+
+            try {
+
+                dynamoDBMapper.delete(brillaVMUsersDo)
+
+                brillaVMUsersDo.category(nameList[pos])
+                dynamoDBMapper.save(brillaVMUsersDo)
+                return "success"
+
+            } catch (e : AmazonClientException){
+                return "error"
+            }
+        }
+
+        override fun onPostExecute(result: String?) {
+            //pbForm.visibility = View.GONE
+            if (result == "success") {
+                val editor = userPreferences.edit()
+                editor.putString("CATEGORY", nameList[pos])
+                editor.apply()
+                val intent = Intent(baseContext, VideoListActivity::class.java)
+                intent.putExtra("category", pos)
+                startActivity(intent)
+                finish()
+            }
+        }
+
     }
 
 }

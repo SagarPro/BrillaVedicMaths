@@ -1,3 +1,414 @@
 <resources>
     <string name="app_name">Brilla Vedic Maths</string>
+    <string name="desc_header">Gain the Power of Doing - Rapid, Mental &amp; One Line Arithmetic</string>
+    <string name="desc">Vedic Math techniques improve the speed of calculations by 10–15 times. Vedic Math is based on 16 sutras. It is fun and easy to learn. Improve your Brain functions in fast acting calculations,  recognising patterns, logical reasoning and memory power.</string>
+    <string name="instructor">“When passion meets skills, results are magical. MathsUp Vedic Maths program is born out my passion towards reinforcing   quick computational and logical thinking skills in young minds. This easy going course with many illustrations and best of class explanation  will also certainly kindle  liking and passion towards maths for any students.  And results for them will be magical.”- <b>Prasanta Sanyal</b>, instructor of this course.
+        \n\n<b>Prasanta Sanyal</b> is <b>Managing Director</b> of <b>Bright Edge Edusystems Pvt.Ltd</b>, a leading Edutech company in the field of early childhood education. He has over 25 years of Corporate Experience and an engineering graduate from IIT, Kharagpur.</string>
+
+    <string name="homepage_intro">Vedic maths is suitable for students from 8 years to Competitive Exam aspirants</string>
+
+    <string-array name="sprouts">
+        <item>Course Introduction</item>
+        <item>Square of 2 &amp; 3-digit numbers ending with 5</item>
+        <item>Square of 2-digit numbers starting with 5</item>
+        <item>Multiplying numbers with 11</item>
+        <item>Multiplying 9 to any number having consecutive digits</item>
+        <item>Cube Root of a Perfect Cube</item>
+        <item>Learning Outcome</item>
+    </string-array>
+
+    <string-array name="cSprouts">
+        <item>Course Introduction</item>
+        <item>SQ01</item>
+        <item>SQ03</item>
+        <item>MU05</item>
+        <item>MU09</item>
+        <item>RT01</item>
+        <item>Learning Outcome</item>
+    </string-array>
+
+    <string-array name="blossoms">
+        <item>Square of 2 &amp; 3-digit numbers ending with 5</item>
+        <item>Square of 2-digit numbers starting with 5</item>
+        <item>Square of any 2 &amp; 3-digit number</item>
+        <item>Multiplications: Digits in unit places are adding to 10 and other digits are same</item>
+        <item>Multiplying numbers with 11</item>
+        <item>Multiplying numbers with 111, 1111 (series of 1)</item>
+        <item>Multiplying 9 to any number having consecutive digits</item>
+        <item>Multiplying any number with series of 9 where equal or less digits are there in the other side</item>
+        <item>Criss-Cross Technique - Multiplying any 2 digit numbers</item>
+        <item>Extending Table</item>
+        <item>Doubling</item>
+        <item>Doubling 3-digit</item>
+        <item>Multiplying with 5, 25, 50</item>
+        <item>Halving</item>
+        <item>Doubling and Halving together</item>
+        <item>Cube Root of a Perfect Cube</item>
+        <item>Digit Sum</item>
+        <item>Circle of 9</item>
+        <item>Digit sum group adding to 9</item>
+        <item>Fun with 9 point circle</item>
+        <item>Digit Sum Addition Check</item>
+        <item>Digit Sum Subtraction check</item>
+        <item>Digit Sum Checking</item>
+        <item>Divisibility Checking</item>
+        <item>Deficiency from 10. Deficiency &amp; Completion together</item>
+        <item>Mental Additions</item>
+        <item>Column Method: Mental Addition</item>
+        <item>Addition, Subtraction both together</item>
+        <item>Quick addition of series of single digit numbers</item>
+        <item>Fast Additions/Subtraction in a line</item>
+    </string-array>
+
+    <string-array name="cBlossoms">
+        <item>SQ01</item>
+        <item>SQ03</item>
+        <item>SQ04</item>
+        <item>MU01</item>
+        <item>MU05</item>
+        <item>MU06</item>
+        <item>MU09</item>
+        <item>MU10</item>
+        <item>MU12</item>
+        <item>MU20</item>
+        <item>MU21</item>
+        <item>MU22</item>
+        <item>MU23</item>
+        <item>MU24</item>
+        <item>MU25</item>
+        <item>RT01</item>
+        <item>OT01</item>
+        <item>OT02</item>
+        <item>OT03</item>
+        <item>OT04</item>
+        <item>OT05</item>
+        <item>OT06</item>
+        <item>OT07</item>
+        <item>OT08</item>
+        <item>OT09</item>
+        <item>OT10</item>
+        <item>OT11</item>
+        <item>OT12</item>
+        <item>OT13</item>
+        <item>OT14</item>
+    </string-array>
+
+    <string-array name="garden">
+        <item>Square of 2 &amp; 3-digit numbers ending with 5</item>
+        <item>Algebraic Proof of Skill 1</item>
+        <item>Square of 2-digit numbers starting with 5</item>
+        <item>Square of any 2 &amp; 3-digit number</item>
+        <item>Multiplications: Digits in unit places are adding to 10 and other digits are same</item>
+        <item>Algebraic Proof of Skill 4</item>
+        <item>Multiplications: Digits in unit places are same and 10th place digits  adding to 10</item>
+        <item>Multiplying any two numbers between 11–19</item>
+        <item>Multiplying numbers with 11</item>
+        <item>Multiplying numbers with 111, 1111 (series of 1)</item>
+        <item>Algebraic Proof of Skill 7</item>
+        <item>Multiplying 9 to any number having consecutive digits</item>
+        <item>Multiplying any number with series of 9 where equal or less digits are there in the other side</item>
+        <item>Criss-Cross Technique - Multiplying any 2 digit numbers</item>
+        <item>Criss-Cross Technique - Multiplying any two 3-digit numbers</item>
+        <item>Extending Table</item>
+        <item>Doubling</item>
+        <item>Doubling 3-digit</item>
+        <item>Multiplying with 5, 25, 50</item>
+        <item>Halving</item>
+        <item>Doubling and Halving together</item>
+        <item>Cube Root of a Perfect Cube</item>
+        <item>Square Root of a Perfect Square</item>
+        <item>Square Roots of a Imperfect Square</item>
+        <item>One-line-division: Up to 2-digit divisor</item>
+        <item>One-line-division: 3 or more digits</item>
+        <item>Digit Sum</item>
+        <item>Circle of 9</item>
+        <item>Digit sum group adding to 9</item>
+        <item>Fun with 9 point circle</item>
+        <item>Digit Sum Addition Check</item>
+        <item>Digit Sum Subtraction check</item>
+        <item>Digit Sum Checking</item>
+        <item>Divisibility Checking</item>
+        <item>Deficiency from 10. Deficiency &amp; Completion together</item>
+        <item>Mental Additions</item>
+        <item>Column Method: Mental Addition</item>
+        <item>Addition, Subtraction both together</item>
+        <item>Quick addition of series of single digit numbers</item>
+        <item>Fast Additions/Subtraction in a line</item>
+    </string-array>
+
+    <string-array name="cGarden">
+        <item>SQ01</item>
+        <item>SQ02</item>
+        <item>SQ03</item>
+        <item>SQ04</item>
+        <item>MU01</item>
+        <item>MU02</item>
+        <item>MU03</item>
+        <item>MU04</item>
+        <item>MU05</item>
+        <item>MU06</item>
+        <item>MU08</item>
+        <item>MU09</item>
+        <item>MU10</item>
+        <item>MU12</item>
+        <item>MU13</item>
+        <item>MU20</item>
+        <item>MU21</item>
+        <item>MU22</item>
+        <item>MU23</item>
+        <item>MU24</item>
+        <item>MU25</item>
+        <item>RT01</item>
+        <item>RT02</item>
+        <item>RT03</item>
+        <item>DI05</item>
+        <item>DI06</item>
+        <item>OT01</item>
+        <item>OT02</item>
+        <item>OT03</item>
+        <item>OT04</item>
+        <item>OT05</item>
+        <item>OT06</item>
+        <item>OT07</item>
+        <item>OT08</item>
+        <item>OT09</item>
+        <item>OT10</item>
+        <item>OT11</item>
+        <item>OT12</item>
+        <item>OT13</item>
+        <item>OT14</item>
+    </string-array>
+
+    <string-array name="estate">
+        <item>Square of 2 &amp; 3-digit numbers ending with 5</item>
+        <item>Algebraic Proof of Skill 1</item>
+        <item>Square of 2-digit numbers starting with 5</item>
+        <item>Square of any 2 &amp; 3-digit number</item>
+        <item>Multiplications: Digits in unit places are adding to 10 and other digits are same</item>
+        <item>Algebraic Proof of Skill 4</item>
+        <item>Multiplications: Digits in unit places are same and 10th place digits  adding to 10</item>
+        <item>Multiplying any two numbers between 11–19</item>
+        <item>Multiplying numbers with 11</item>
+        <item>Multiplying numbers with 111, 1111 (series of 1)</item>
+        <item>Multiplying 2-digit numbers where unit digits are adding to 10 and other digits are consecutive</item>
+        <item>Algebraic Proof of Skill 7</item>
+        <item>Multiplying 9 to any number having consecutive digits</item>
+        <item>Multiplying any number with series of 9 where equal or less digits are there in the other side</item>
+        <item>Multiplying any number with series of 9 where more digits are on the other side</item>
+        <item>Criss-Cross Technique - Multiplying any 2 digit numbers</item>
+        <item>Criss-Cross Technique - Multiplying any two 3-digit numbers</item>
+        <item>Square of 3-digit numbers</item>
+        <item>Square of 4-digit numbers</item>
+        <item>Cube of any 2-digit number</item>
+        <item>Extending Table</item>
+        <item>Doubling</item>
+        <item>Doubling 3-digit</item>
+        <item>Multiplying with 5, 25, 50</item>
+        <item>Halving</item>
+        <item>Doubling and Halving together</item>
+        <item>Cube Root of a Perfect Cube</item>
+        <item>Square Root of a Perfect Square</item>
+        <item>Square Roots of a Imperfect Square</item>
+        <item>Quick Division by 9</item>
+        <item>Base Method of Division</item>
+        <item>Base Method Division with 2, 3 or more digits in divisor (but lesser than base)</item>
+        <item>Base Method Division with 2, 3 or more digits in divisor (but greater than base)</item>
+        <item>One-line-division: Up to 2-digit divisor</item>
+        <item>One-line-division: 3 or more digits</item>
+        <item>Digit Sum</item>
+        <item>Circle of 9</item>
+        <item>Digit sum group adding to 9</item>
+        <item>Fun with 9 point circle</item>
+        <item>Digit Sum Addition Check</item>
+        <item>Digit Sum Subtraction check</item>
+        <item>Digit Sum Checking</item>
+        <item>Divisibility Checking</item>
+        <item>Deficiency from 10. Deficiency &amp; Completion together</item>
+        <item>Mental Additions</item>
+        <item>Column Method: Mental Addition</item>
+        <item>Addition, Subtraction both together</item>
+        <item>Quick addition of series of single digit numbers</item>
+        <item>Fast Additions/Subtraction in a line</item>
+        <item>General Equations</item>
+    </string-array>
+
+    <string-array name="cEstate">
+        <item>SQ01</item>
+        <item>SQ02</item>
+        <item>SQ03</item>
+        <item>SQ04</item>
+        <item>MU01</item>
+        <item>MU02</item>
+        <item>MU03</item>
+        <item>MU04</item>
+        <item>MU05</item>
+        <item>MU06</item>
+        <item>MU07</item>
+        <item>MU08</item>
+        <item>MU09</item>
+        <item>MU10</item>
+        <item>MU11</item>
+        <item>MU12</item>
+        <item>MU13</item>
+        <item>SQ05</item>
+        <item>SQ06</item>
+        <item>CU01</item>
+        <item>MU20</item>
+        <item>MU21</item>
+        <item>MU22</item>
+        <item>MU23</item>
+        <item>MU24</item>
+        <item>MU25</item>
+        <item>RT01</item>
+        <item>RT02</item>
+        <item>RT03</item>
+        <item>DI01</item>
+        <item>DI02</item>
+        <item>DI03</item>
+        <item>DI04</item>
+        <item>DI05</item>
+        <item>DI06</item>
+        <item>OT01</item>
+        <item>OT02</item>
+        <item>OT03</item>
+        <item>OT04</item>
+        <item>OT05</item>
+        <item>OT06</item>
+        <item>OT07</item>
+        <item>OT08</item>
+        <item>OT09</item>
+        <item>OT10</item>
+        <item>OT11</item>
+        <item>OT12</item>
+        <item>OT13</item>
+        <item>OT14</item>
+        <item>AL01</item>
+    </string-array>
+
+    <string-array name="orchard">
+        <item>Square of 2 &amp; 3-digit numbers ending with 5</item>
+        <item>Algebraic Proof of Skill 1</item>
+        <item>Square of 2-digit numbers starting with 5</item>
+        <item>Square of any 2 &amp; 3-digit number</item>
+        <item>Multiplications: Digits in unit places are adding to 10 and other digits are same</item>
+        <item>Algebraic Proof of Skill 4</item>
+        <item>Multiplications: Digits in unit places are same and 10th place digits  adding to 10</item>
+        <item>Multiplying any two numbers between 11–19</item>
+        <item>Multiplying numbers with 11</item>
+        <item>Multiplying numbers with 111, 1111 (series of 1)</item>
+        <item>Multiplying 2-digit numbers where unit digits are adding to 10 and other digits are consecutive</item>
+        <item>Algebraic Proof of Skill 7</item>
+        <item>Multiplying 9 to any number having consecutive digits</item>
+        <item>Multiplying any number with series of 9 where equal or less digits are there in the other side</item>
+        <item>Multiplying any number with series of 9 where more digits are on the other side</item>
+        <item>Criss-Cross Technique - Multiplying any 2 digit numbers</item>
+        <item>Criss-Cross Technique - Multiplying any two 3-digit numbers</item>
+        <item>Square of 3-digit numbers</item>
+        <item>Square of 4-digit numbers</item>
+        <item>Cube of any 2-digit number</item>
+        <item>Base multiplication of numbers near the base 100, 200 etc.( 2 digit base multiplication)</item>
+        <item>Base multiplication of numbers near the base 1000, 2000 etc. ( 3 digit base multiplication)</item>
+        <item>Base multiplication of numbers near 10 base (70 base multiplication)</item>
+        <item>Base Multiplication of 3 numbers near the base</item>
+        <item>Multiplying Numbers near different bases</item>
+        <item>Algebraic Proof of Base method of Multiplication</item>
+        <item>Extending Table</item>
+        <item>Doubling</item>
+        <item>Doubling 3-digit</item>
+        <item>Multiplying with 5, 25, 50</item>
+        <item>Halving</item>
+        <item>Doubling and Halving together</item>
+        <item>Cube Root of a Perfect Cube</item>
+        <item>Square Root of a Perfect Square</item>
+        <item>Square Roots of a Imperfect Square</item>
+        <item>Quick Division by 9</item>
+        <item>Base Method of Division</item>
+        <item>Base Method Division with 2, 3 or more digits in divisor (but lesser than base)</item>
+        <item>Base Method Division with 2, 3 or more digits in divisor (but greater than base)</item>
+        <item>One-line-division: Up to 2-digit divisor</item>
+        <item>One-line-division: 3 or more digits</item>
+        <item>Digit Sum</item>
+        <item>Circle of 9</item>
+        <item>Digit sum group adding to 9</item>
+        <item>Fun with 9 point circle</item>
+        <item>Digit Sum Addition Check</item>
+        <item>Digit Sum Subtraction check</item>
+        <item>Digit Sum Checking</item>
+        <item>Divisibility Checking</item>
+        <item>Deficiency from 10. Deficiency &amp; Completion together</item>
+        <item>Mental Additions</item>
+        <item>Column Method: Mental Addition</item>
+        <item>Addition, Subtraction both together</item>
+        <item>Quick addition of series of single digit numbers</item>
+        <item>Fast Additions/Subtraction in a line</item>
+        <item>Percentage Reciprocal</item>
+        <item>Percentage Compounding</item>
+        <item>General Equations</item>
+        <item>Factorisation - Vedic Math Technique</item>
+        <item>Simultaneous Equations</item>
+    </string-array>
+
+    <string-array name="cOrchard">
+        <item>SQ01</item>
+        <item>SQ02</item>
+        <item>SQ03</item>
+        <item>SQ04</item>
+        <item>MU01</item>
+        <item>MU02</item>
+        <item>MU03</item>
+        <item>MU04</item>
+        <item>MU05</item>
+        <item>MU06</item>
+        <item>MU07</item>
+        <item>MU08</item>
+        <item>MU09</item>
+        <item>MU10</item>
+        <item>MU11</item>
+        <item>MU12</item>
+        <item>MU13</item>
+        <item>SQ05</item>
+        <item>SQ06</item>
+        <item>CU01</item>
+        <item>MU14</item>
+        <item>MU15</item>
+        <item>MU16</item>
+        <item>MU17</item>
+        <item>MU18</item>
+        <item>MU19</item>
+        <item>MU20</item>
+        <item>MU21</item>
+        <item>MU22</item>
+        <item>MU23</item>
+        <item>MU24</item>
+        <item>MU25</item>
+        <item>RT01</item>
+        <item>RT02</item>
+        <item>RT03</item>
+        <item>DI01</item>
+        <item>DI02</item>
+        <item>DI03</item>
+        <item>DI04</item>
+        <item>DI05</item>
+        <item>DI06</item>
+        <item>OT01</item>
+        <item>OT02</item>
+        <item>OT03</item>
+        <item>OT04</item>
+        <item>OT05</item>
+        <item>OT06</item>
+        <item>OT07</item>
+        <item>OT08</item>
+        <item>OT09</item>
+        <item>OT10</item>
+        <item>OT11</item>
+        <item>OT12</item>
+        <item>OT13</item>
+        <item>OT14</item>
+        <item>OT15</item>
+        <item>OT16</item>
+        <item>AL01</item>
+        <item>AL02</item>
+        <item>AL03</item>
+    </string-array>
+
 </resources>

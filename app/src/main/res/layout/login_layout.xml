@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="sagsaguz.brillavedicmaths.LoginActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/intro_bg"
+        android:id="@+id/rlLogin">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/shadow_bg"
+            android:layout_centerVertical="true"
+            android:id="@+id/rlLoginSpace">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_margin="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:textSize="24sp"
+                    android:textColor="@color/colorNavy"
+                    android:layout_marginBottom="3dp"
+                    android:id="@+id/tvLogin"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@color/colorNavy"
+                    android:layout_marginBottom="40dp"
+                    android:id="@+id/loginView"/>
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@android:color/transparent"
+                    android:id="@+id/etEmpty"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email address"
+                    android:textColorHint="@color/colorNavy"
+                    android:inputType="textEmailAddress"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/colorNavy"
+                    android:textSize="18sp"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:nextFocusUp="@id/etEmailAddress"
+                    android:nextFocusLeft="@id/etEmailAddress"
+                    android:background="@drawable/login_border"
+                    android:id="@+id/etEmailAddress"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:textColorHint="@color/colorNavy"
+                    android:inputType="textPassword"
+                    android:textCursorDrawable="@null"
+                    android:textColor="@color/colorNavy"
+                    android:textSize="18sp"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/login_border"
+                    android:id="@+id/etPassword"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Forgot password?"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorNavy"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="end"
+                    android:id="@+id/tvForgotPassword"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimaryDark"
+                    android:text="Login"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorWhite"
+                    android:textAllCaps="false"
+                    android:elevation="5dp"
+                    android:id="@+id/btnLogin"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Not a member yet?"
+                        android:textColor="@color/colorNavy"
+                        android:textSize="14sp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/tvRegister"
+                        android:id="@+id/tv1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Register Here"
+                        android:textColor="@color/colorNavy"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/tvRegister"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:id="@+id/pbLogin"/>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

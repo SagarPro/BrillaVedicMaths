@@ -8,4 +8,21 @@
     <color name="colorNavy">#2c3e50</color>
     <color name="colorGreen">#2ecc71</color>
     <color name="colorRed">#e74c3c</color>
+    <color name="colorSilver">#f3f3f3</color>
+
+    <color name="colorDeepOrange">#FF5722</color>
+    <color name="colorDeepGreen">#4cd137</color>
+    <color name="colorDeepBlue">#0652DD</color>
+    <color name="colorDeepRose">#c44569</color>
+    <color name="colorEmerald">#2ecc71</color>
+    <color name="colorNeptGreen">#27ae60</color>
+    <color name="colorDarkBlue">#0652DD</color>
+    <color name="colorYellow">#ffa801</color>
+    <color name="colorGreenTeal">#05c46b</color>
+    <color name="colorDiscoBlue">#0fbcf9</color>
+    <color name="colorFieryRed">#B33771</color>
+    <color name="colorPigmentRed">#EA2027</color>
+    <color name="colorBuyNow">#3742fa</color>
+    <color name="colorLogin">#EE5A24</color>
+    <color name="colorText">#CFD8DC</color>
 </resources>

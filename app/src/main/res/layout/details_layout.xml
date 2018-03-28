@@ -3,22 +3,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/rlDetails"
     tools:context="sagsaguz.brillavedicmaths.DetailsActivity">
 
-    <ListView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/btnPayNow"
-        android:layout_margin="5dp"
-        android:dividerHeight="5dp"
-        android:id="@+id/lvDetails"/>
+        android:layout_height="70dp"
+        android:src="@drawable/sprouts_d"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/category"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pay now"
-        android:textAllCaps="false"
-        android:id="@+id/btnPayNow"
-        android:layout_alignParentBottom="true"/>
+        android:layout_below="@id/category"
+        android:text="no. of skills"
+        android:textSize="18sp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorPigmentRed"
+        android:layout_margin="5dp"
+        android:id="@+id/btnNumber"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scroll down for\ncomplete list"
+        android:textColor="@color/colorNavy"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/lvDetails"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="5dp"
+        android:id="@+id/tvText"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnNumber"
+        android:layout_above="@id/rlButtons"
+        android:layout_margin="5dp"
+        android:dividerHeight="5dp"
+        android:divider="@android:color/transparent"
+        android:scrollbars="none"
+        android:id="@+id/lvDetails"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:id="@+id/rlButtons">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Free Trial"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorFieryRed"
+            android:visibility="invisible"
+            android:id="@+id/btnFree"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buy Now"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorBuyNow"
+            android:id="@+id/btnPayNow"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login / Register"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorLogin"
+            android:id="@+id/btnRegister"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Course"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorDiscoBlue"
+            android:visibility="invisible"
+            android:id="@+id/btnViewCourse"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

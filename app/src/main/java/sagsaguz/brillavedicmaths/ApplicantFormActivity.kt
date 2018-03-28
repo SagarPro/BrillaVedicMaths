@@ -1,7 +1,9 @@
 package sagsaguz.brillavedicmaths
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -33,6 +35,7 @@ class ApplicantFormActivity : AppCompatActivity() {
     lateinit var etPhone : EditText
     lateinit var etAge : EditText
     lateinit var etCity : EditText
+    lateinit var etPassword : EditText
 
     private lateinit var btnRegister : Button
 
@@ -41,9 +44,13 @@ class ApplicantFormActivity : AppCompatActivity() {
     lateinit var dynamoDBClient : AmazonDynamoDBClient
     lateinit var dynamoDBMapper : DynamoDBMapper
 
+    lateinit var userPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.applicant_form_layout)
+
+        userPreferences = getSharedPreferences("USERDETAILS", Context.MODE_PRIVATE)
 
         rlForm = findViewById(R.id.rlForm)
 
@@ -52,6 +59,7 @@ class ApplicantFormActivity : AppCompatActivity() {
         etPhone = findViewById(R.id.etPhone)
         etAge = findViewById(R.id.etAge)
         etCity = findViewById(R.id.etCity)
+        etPassword = findViewById(R.id.etPassword)
         btnRegister = findViewById(R.id.btnRegister)
 
         btnRegister.setOnClickListener {
@@ -84,11 +92,19 @@ class ApplicantFormActivity : AppCompatActivity() {
             TextUtils.isEmpty(etEmail.text.toString()) ||
             TextUtils.isEmpty(etPhone.text.toString()) ||
             TextUtils.isEmpty(etAge.text.toString()) ||
-            TextUtils.isEmpty(etCity.text.toString())) {
+            TextUtils.isEmpty(etCity.text.toString()) ||
+                TextUtils.isEmpty(etPassword.text.toString())) {
             basicSnackBar("Please enter your details")
             return false
-        } else if (isValidEmail()){
-            return if (etPhone.length()==10){
+        }
+
+        if (etPassword.length() < 7){
+            basicSnackBar("Enter 7 or more characters for password")
+            return false
+        }
+
+        return if (isValidEmail()){
+            if (etPhone.length()==10){
                 true
             } else {
                 basicSnackBar("Enter valid 10 digit phone number")
@@ -96,7 +112,7 @@ class ApplicantFormActivity : AppCompatActivity() {
             }
         } else {
             basicSnackBar("Enter your valid email address")
-            return false
+            false
         }
     }
 
@@ -141,6 +157,8 @@ class ApplicantFormActivity : AppCompatActivity() {
             brillaVMUsersDo.name(etFullName.text.toString())
             brillaVMUsersDo.age(etAge.text.toString())
             brillaVMUsersDo.city(etCity.text.toString())
+            brillaVMUsersDo.password(etPassword.text.toString())
+            brillaVMUsersDo.category("sprouts")
         }
 
         override fun doInBackground(vararg p0: Void?): String {
@@ -157,6 +175,9 @@ class ApplicantFormActivity : AppCompatActivity() {
                     for (map in rows) {
                         try {
                             if (map["phone"]!!.s == brillaVMUsersDo.phone) {
+                                return "failed"
+                            }
+                            if (map["email"]!!.s == brillaVMUsersDo.email) {
                                 return "failed"
                             }
                         } catch (e: NumberFormatException) {
@@ -176,12 +197,24 @@ class ApplicantFormActivity : AppCompatActivity() {
         override fun onPostExecute(result: String?) {
             pbForm.visibility = View.GONE
             if (result == "success") {
+                val editor = userPreferences.edit()
+                editor.putString("LOGIN", "login")
+                editor.putString("EMAIL", etEmail.text.toString())
+                editor.putString("NAME", etFullName.text.toString())
+                editor.putString("PHONE", etPhone.text.toString())
+                editor.putString("AGE", etAge.text.toString())
+                editor.putString("CITY", etCity.text.toString())
+                editor.putString("PASSWORD", etPassword.text.toString())
+                editor.putString("CATEGORY", "sprouts")
+                editor.apply()
                 startActivity(Intent(applicationContext, HomePageActivity::class.java))
+                val loginActivity = LoginActivity()
+                loginActivity.finish()
+                finish()
             } else if (result == "failed") {
-                basicSnackBar("Failed")
+                basicSnackBar("User with this details is already registered")
             }
         }
-
 
     }
 }

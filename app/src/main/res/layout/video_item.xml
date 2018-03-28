@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:background="@color/colorWhite">
+
+    <TextView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:text="01"
+        android:textSize="18sp"
+        android:textColor="@color/colorNavy"
+        android:gravity="center"
+        android:id="@+id/tvSLno"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/tvSLno"
+        android:text="Video Name"
+        android:textSize="18sp"
+        android:textColor="@color/colorNavy"
+        android:layout_marginStart="10dp"
+        android:id="@+id/tvVideoName"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/tvVideoName"
+        android:layout_marginTop="5dp">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Learn"
+            android:textColor="@color/colorWhite"
+            android:textAllCaps="false"
+            android:background="@color/colorEmerald"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:id="@+id/btnLearn"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Practise"
+            android:textColor="@color/colorWhite"
+            android:textAllCaps="false"
+            android:background="@color/colorDeepOrange"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:id="@+id/btnPractise"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Download PDF"
+            android:textColor="@color/colorWhite"
+            android:textAllCaps="false"
+            android:background="@color/colorDeepBlue"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:id="@+id/btnDownloadPDF"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
