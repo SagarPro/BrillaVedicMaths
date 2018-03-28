@@ -10,7 +10,7 @@ class AWSProvider {
     fun getCredentialsProvider(context: Context): CognitoCachingCredentialsProvider {
         return CognitoCachingCredentialsProvider(
                 context,
-                "ap-south-1:7124d20c-97cf-430d-a43c-6b98dac26b02",
+                "identity pool id",
                 Regions.AP_SOUTH_1
         )
     }
